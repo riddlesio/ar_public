@@ -1,0 +1,129 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <!--<script src="https://2qr.at/ar/lib/0.9.0/aframe.min.js"></script>-->
+    <script src=" https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+    <body style='margin : 0px; overflow: hidden;'>
+
+      <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+       Husky AR DEMO v01<br><br>
+      <button>
+      <a href="http://marvin.somatics.red/ar/markers/" target="_blank">open Markers on your pc/mac</a>
+
+      </button>
+  	  </div>
+
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene
+        vr-mode-ui="enabled: false;"
+          renderer="logarithmicDepthBuffer: true;"
+    embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+
+
+
+
+<!-- test simple code and marker
+Maker
+https://au.gmented.com/app/marker/marker.php
+
+QR + maker
+https://www.qrcode-monkey.com/#
+
+-->
+
+          <a-assets>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
+
+          <a-assets>
+            <a-asset-item id="animated-price" src="https://raw.githubusercontent.com/riddlesio/ar_public/main/objects/pushers/ARprice_1-5_.gltf"></a-asset-item>
+        </a-assets>
+
+        <!-- <a-assets>-->
+        <!--    <a-asset-item id="animated-pelvis" src="https://marvin.somatics.red/ar/3dObjects/p1.gltf"></a-asset-item>-->
+        <!--</a-assets>-->
+
+         <a-assets>
+            <a-asset-item id="animated-btween-price" src="https://raw.githubusercontent.com/riddlesio/ar_public/main/objects/pushers/ARbtween_price.gltf"></a-asset-item>
+        </a-assets>
+
+
+         <a-assets>
+            <a-asset-item id="animated-sultana-price" src="https://raw.githubusercontent.com/riddlesio/ar_public/main/objects/pushers/ARsultana_price.gltf"></a-asset-item>
+        </a-assets>
+
+
+          <a-marker id="animated-marker" type='barcode' value='1'>
+            <a-entity
+                gltf-model="#animated-price"
+                scale="0.2 0.2 0.2"
+                position='-1 0 -1'>
+            </a-entity>
+        </a-marker>
+
+              <a-marker id="animated-marker" type='barcode' value='2'>
+            <a-entity
+                gltf-model="#animated-sultana-price"
+                scale="0.2 0.2 0.2"
+                position='-1 0 -1'>
+        </a-marker>
+
+
+              <a-marker id="animated-marker" type='barcode' value='3'>
+            <a-entity
+                gltf-model="#animated-btween-price"
+                scale="0.2 0.2 0.2"
+                position='-1 0 -1'>
+            </a-entity>
+        </a-marker>
+
+
+          <a-marker type='barcode' value='4'>
+            <a-box position='0 0.5 0' color="yellow"></a-box>
+        </a-marker>
+
+
+          <a-marker type='barcode' value='5'>
+            <a-box position='0 0.5 0' color="orange"></a-box>
+        </a-marker>
+
+
+          <a-marker type='barcode' value='6'>
+            <a-box position='0 0.5 0' color="green"></a-box>
+        </a-marker>
+
+
+          <a-marker type='barcode' value='7'>
+            <a-box position='0 0.5 0' color="black"></a-box>
+        </a-marker>
+
+        <a-marker type='barcode' value='8'>
+            <a-box position='0 0.5 0' color="red"></a-box>
+        </a-marker>
+
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+        </a-scene>
+
+<script>
+
+  // TODO check if device will work if not forward to download site ect
+  // aks if people want info for quick demo ( video )
+  // show stuff
+
+  alert("We are testing our new Husky AR function. \n\nPlease scan QR code again and see the product prices \n\n add https:\\");
+  //TODO ask to go to appstore to download app or check if app is installed
+//   document.querySelector("button").addEventListener("click", (e)=>{
+//   window.open("/markers/index.php,"_self")
+// });
+
+</script>
+    </body>
+</html>
